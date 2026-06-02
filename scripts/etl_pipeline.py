@@ -154,3 +154,158 @@ perf.to_csv(
 print("Scheme Performance Cleaned")
 
 print("\nDAY 2 CLEANING COMPLETED")
+
+# =============================
+# 4. CLEAN FUND MASTER
+# =============================
+
+print("Cleaning Fund Master...")
+
+fund = pd.read_csv(
+    RAW / "01_fund_master.csv"
+)
+
+fund["launch_date"] = pd.to_datetime(
+    fund["launch_date"]
+)
+
+fund = fund.drop_duplicates()
+
+fund.to_csv(
+    PROCESSED / "01_fund_master_clean.csv",
+    index=False
+)
+
+print("Fund Master Cleaned")
+
+
+# =============================
+# 5. CLEAN AUM DATA
+# =============================
+
+print("Cleaning AUM Data...")
+
+aum = pd.read_csv(
+    RAW / "03_aum_by_fund_house.csv"
+)
+
+aum["date"] = pd.to_datetime(
+    aum["date"]
+)
+
+aum = aum.drop_duplicates()
+
+aum.to_csv(
+    PROCESSED / "03_aum_by_fund_house_clean.csv",
+    index=False
+)
+
+print("AUM Data Cleaned")
+
+
+# =============================
+# 6. CLEAN SIP INFLOWS
+# =============================
+
+print("Cleaning SIP Inflows...")
+
+sip = pd.read_csv(
+    RAW / "04_monthly_sip_inflows.csv"
+)
+
+sip = sip.drop_duplicates()
+
+sip.to_csv(
+    PROCESSED / "04_monthly_sip_inflows_clean.csv",
+    index=False
+)
+
+print("SIP Inflows Cleaned")
+
+
+# =============================
+# 7. CLEAN CATEGORY INFLOWS
+# =============================
+
+print("Cleaning Category Inflows...")
+
+cat = pd.read_csv(
+    RAW / "05_category_inflows.csv"
+)
+
+cat = cat.drop_duplicates()
+
+cat.to_csv(
+    PROCESSED / "05_category_inflows_clean.csv",
+    index=False
+)
+
+print("Category Inflows Cleaned")
+
+
+# =============================
+# 8. CLEAN INDUSTRY FOLIOS
+# =============================
+
+print("Cleaning Industry Folios...")
+
+folio = pd.read_csv(
+    RAW / "06_industry_folio_count.csv"
+)
+
+folio = folio.drop_duplicates()
+
+folio.to_csv(
+    PROCESSED / "06_industry_folio_count_clean.csv",
+    index=False
+)
+
+print("Industry Folios Cleaned")
+
+
+# =============================
+# 9. CLEAN PORTFOLIO HOLDINGS
+# =============================
+
+print("Cleaning Portfolio Holdings...")
+
+holdings = pd.read_csv(
+    RAW / "09_portfolio_holdings.csv"
+)
+
+holdings["portfolio_date"] = pd.to_datetime(
+    holdings["portfolio_date"]
+)
+
+holdings = holdings.drop_duplicates()
+
+holdings.to_csv(
+    PROCESSED / "09_portfolio_holdings_clean.csv",
+    index=False
+)
+
+print("Portfolio Holdings Cleaned")
+
+
+# =============================
+# 10. CLEAN BENCHMARK DATA
+# =============================
+
+print("Cleaning Benchmark Indices...")
+
+bench = pd.read_csv(
+    RAW / "10_benchmark_indices.csv"
+)
+
+bench["date"] = pd.to_datetime(
+    bench["date"]
+)
+
+bench = bench.drop_duplicates()
+
+bench.to_csv(
+    PROCESSED / "10_benchmark_indices_clean.csv",
+    index=False
+)
+
+print("Benchmark Data Cleaned")
