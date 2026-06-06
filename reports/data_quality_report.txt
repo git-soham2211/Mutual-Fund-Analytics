@@ -58,3 +58,13 @@ Rows : 8050
 Columns : 3
 Missing Values : 0
 Duplicates : 0
+
+
+ROW COUNT VALIDATION
+
+--------------------------------------------------
+dim_fund             CSV=40       DB=40       PASS
+fact_nav             CSV=46000    DB=46000    PASS
+fact_aum             CSV=90       DB=90       PASS
+fact_transactions    CSV=32778    DB=32778    PASS
+fact_performance     CSV=40       DB=40       PASS
